@@ -42,7 +42,7 @@ def exponent(a: int|float, power: int|float) -> int | float:
     else:
         #  Initializes result as a^0 and then multiplies it by a for power times and returns
         result = 1  #  Sets result == a^0 for all a
-        for i in range(1, power):
+        for i in range(power):
             result *= a
         return result
 
