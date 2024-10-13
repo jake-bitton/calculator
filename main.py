@@ -51,9 +51,16 @@ def exponent(a: int|float, power: int|float) -> int | float:
             
 
 
-def n_root(a: int|float, n: int|float) -> int|float:
-    #  To be implemented
-    pass
+def n_root(a: int|float, n: int|float, precision_value: int = 5) -> int|float:
+    '''
+    Uses Newton's method with a default repetition of 5 times to 
+    approximate a^(1/n) for any a, n in the set of real numbers.
+    '''
+    approx = 1  #  Sets initial value (a_0_) to equal 1
+    for i in range(precision_value):
+        approx = (1/n) * (2 * approx + (a / exponent(approx, 2)))
+    
+    return approx
 
 def sin_rad(theta: int|float) -> int | float:
     # T B I
