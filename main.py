@@ -32,7 +32,7 @@ def exponent(a: int|float, power: int|float) -> int | float:
         #  splits power into integer and decimal/float parts allowing equation to be split into a^(float: power) = a^(int_power) + a^(float_power)
         for i in range(len(str_power)-1):
             if str_power[i] != '.':
-                int_power += power[i]
+                int_power += str_power[i]
             else:
                 float_power = str_power[i+1:]
         int_power = int(int_power)
