@@ -40,7 +40,7 @@ def exponent(a: int|float, power: int|float) -> int | float:
         #  Logic for float/decimal portion goes here
         result += n_root(a, int(float_power))'''
 
-        result = n_root(a * exponent(10, len(float_power)+1), int(float_power))
+        result = n_root(a * exponent(10, len(float_power)), int(float_power))
 
     else:
         #  Initializes result as a^0 and then multiplies it by a for power times and returns
@@ -58,7 +58,7 @@ def n_root(a: int|float, n: int|float, precision_value: int = 10) -> int|float:
     '''
     approx = 1  #  Sets initial value (a_0_) to equal 1
     for i in range(precision_value):
-        approx = (1/n) * ((n-1) * approx + (a / exponent(approx, n-1)))
+        approx = ((n-1)/n) * approx + (a/(n * exponent(approx, n-1)))
     
     return approx
 
