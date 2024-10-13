@@ -34,32 +34,28 @@ def exponent(a: int|float, power: int|float) -> int | float:
             if power[i] != '.':
                 int_power += power[i]
             else:
-                float_power = str_power[i:]
+                float_power = str_power[i+1:]
         int_power = int(int_power)
-        float_power = float(float_power)
         result = exponent(a, int_power)  #  Recursive (?) call to exponent that returns the a^(int_power) part of equation
         #  Logic for float/decimal portion goes here
+        result += n_root(a, int(float_power))
     else:
         #  Initializes result as a^0 and then multiplies it by a for power times and returns
         result = 1  #  Sets result == a^0 for all a
         for i in range(power):
             result *= a
-        return result
-
-
-
+    
+    return result
             
 
-
-def n_root(a: int|float, n: int|float, precision_value: int = 5) -> int|float:
+def n_root(a: int|float, n: int|float, precision_value: int = 10) -> int|float:
     '''
-    Uses Newton's method with a default repetition of 5 times to 
+    Uses Newton's method with a default repetition of 10 times to 
     approximate a^(1/n) for any a, n in the set of real numbers.
     '''
     approx = 1  #  Sets initial value (a_0_) to equal 1
     for i in range(precision_value):
         approx = (1/n) * ((n-1) * approx + (a / exponent(approx, n-1)))
-        print(approx)
     
     return approx
 
