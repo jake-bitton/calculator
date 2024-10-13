@@ -36,9 +36,12 @@ def exponent(a: int|float, power: int|float) -> int | float:
             else:
                 float_power = str_power[i+1:]
         int_power = int(int_power)
-        result = exponent(a, int_power)  #  Recursive (?) call to exponent that returns the a^(int_power) part of equation
+        ''' result = exponent(a, int_power)  #  Recursive (?) call to exponent that returns the a^(int_power) part of equation
         #  Logic for float/decimal portion goes here
-        result += n_root(a, int(float_power))
+        result += n_root(a, int(float_power))'''
+
+        result = n_root(a * exponent(10, len(float_power)+1), int(float_power))
+
     else:
         #  Initializes result as a^0 and then multiplies it by a for power times and returns
         result = 1  #  Sets result == a^0 for all a
