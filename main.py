@@ -56,7 +56,7 @@ def n_root(a: int|float, n: int|float, precision_value: int = 10) -> int|float:
     Uses Newton's method with a default repetition of 10 times to 
     approximate a^(1/n) for any a, n in the set of real numbers.
     '''
-    approx = 1  #  Sets initial value (a_0_) to equal 1
+    approx = a  #  Sets initial value (a_0_) to equal a
     for i in range(precision_value):
         approx = ((n-1)/n) * approx + (a/(n * exponent(approx, n-1)))
     
