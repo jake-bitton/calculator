@@ -59,6 +59,7 @@ def n_root(a: int|float, n: int|float, precision_value: int = 5) -> int|float:
     approx = 1  #  Sets initial value (a_0_) to equal 1
     for i in range(precision_value):
         approx = (1/n) * (2 * approx + (a / exponent(approx, 2)))
+        print(approx)
     
     return approx
 
